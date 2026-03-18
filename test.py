@@ -24,4 +24,8 @@ class DataIngestion:
         return self.vstore
         
 
+if __name__ == "__main__":
+    ingest = DataIngestion("/Users/suriyaa/Documents/Projects/LLMOps/Flipkart Product Recommender/data/flipkart_product_review.csv")
+    ingest.ingest(False)
+        
 
