@@ -3,8 +3,8 @@ from flipkart.data_converter import DataConverter
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from flipkart.config import Config
 
-class DataIngestion:
-    def __init__(self, file_path):
+class DataIngestor:
+    def __init__(self, file_path="data/flipkart_products.csv"):
         self.file_path = file_path
         self.embedding = HuggingFaceEndpointEmbeddings(model=Config.EMBEDDING_MODEL)
         self.vstore = AstraDBVectorStore(

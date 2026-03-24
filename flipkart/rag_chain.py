@@ -19,7 +19,7 @@ class RAGChainBuilder:
     def _get_history(self,session_id:str) -> BaseChatMessageHistory:
         if session_id not in self.history_store:
             self.history_store[session_id] = ChatMessageHistory()
-        return self.history_dstore[session_id]
+        return self.history_store[session_id]
     
     def build_chain(self):
         retriever = self.vector_store.as_retriever(search_kwargs={"k":3})
