@@ -4,6 +4,7 @@ from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from flipkart.config import Config
 
 class DataIngestor:
+
     def __init__(self, file_path="data/flipkart_products.csv"):
         self.file_path = file_path
         self.embedding = HuggingFaceEndpointEmbeddings(model=Config.EMBEDDING_MODEL)
@@ -14,7 +15,7 @@ class DataIngestor:
             token=Config.ASTRA_DB_APPLICATION_TOKEN,
         )
 
-    def ingest(self, load_existing=True):
+    def ingest(self, load_existing=False):
         if load_existing:
             return self.vstore
 
@@ -22,6 +23,4 @@ class DataIngestor:
 
         self.vstore.add_documents(docs)
         return self.vstore
-        
-
 
